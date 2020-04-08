@@ -1,0 +1,42 @@
+<form [formGroup]="studentForm">
+  <div class="form-wrapper">
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Name *" formControlName="name" required>
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Phone *" formControlName="phone" required>
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email *" formControlName="email" required>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col">
+          <input type="number" class="form-control" placeholder="Remaining Indivs" formControlName="remainIndivs">
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Indiv cost" formControlName="indivCost">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Abon cost" formControlName="abonCost">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Abon ammount" formControlName="abonAmmount">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Abon days" formControlName="abonDays">
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" [disabled]="studentForm.invalid" (click)="saveStudent()">Save user</button>
+  </div>
+</form>

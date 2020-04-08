@@ -1,0 +1,37 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.green {
+  color: $green;
+}
+
+.yellow {
+  color: $yellow;
+}
+
+.red {
+  color: $red;
+}
+
+
+.student-list-item {
+  border-bottom: 1px solid $secondary;
+  padding: 10px;
+
+  .counter {
+    float: right;
+  }
+
+  .btn {
+    margin-right: 5px;
+  }
+}
+
+.add-student-wrapper {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid $secondary;
+
+  .btn {
+    width: 100%;
+  }
+}

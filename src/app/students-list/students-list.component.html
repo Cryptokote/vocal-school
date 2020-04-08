@@ -1,0 +1,19 @@
+<div>
+  <div class="add-student-wrapper">
+    <button class="btn btn-primary" [routerLink]="['/createStudent']">Add student</button>
+  </div>
+  <div *ngFor="let student of students" class="student-list-item">
+    <button class="btn btn-secondary" (click)="addCompletedLesson(student.name)">
+      <fa-icon [icon]="faCheck"></fa-icon>
+    </button>
+    <button class="btn btn-success" (click)="addPayment(student.name, 'indiv')">
+      <fa-icon [icon]="faDollarSign"></fa-icon>
+    </button>
+    <button class="btn btn-success" (click)="addPayment(student.name, 'abon')">
+      <fa-icon [icon]="faDollarSign"></fa-icon><fa-icon [icon]="faDollarSign"></fa-icon>
+    </button>
+    <span (click)="navigateToSingleStudent(student)">{{student.name}}</span>
+    <span class="counter" [ngClass]="student.indivCounterClass">{{student.remaining_indivs}}</span>
+  </div>
+
+</div>
