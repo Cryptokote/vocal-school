@@ -5,10 +5,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "prod": "ng build --prod --baseHref=\"/vocal-scool/\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod  --baseHref=\"/vocal-teacher-app/\" && angular-cli-ghpages --branch master"
+    "deploy": "ng build --prod  --baseHref=\"/vocal-scool/\" && angular-cli-ghpages --branch master"
   },
   "private": true,
   "dependencies": {
