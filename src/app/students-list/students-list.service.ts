@@ -22,8 +22,8 @@ export class StudentsListService {
         students.forEach(student => {
           student.indivCounterClass = this.getStudentIndivsCounterClass(student.remaining_indivs);
         });
-        return students;
-        // return students.filter(student => student.mail.indexOf('test') === -1);
+        // return students;
+        return students.filter(student => student.mail.indexOf('test') === -1);
       }),
       catchError(() => {
         return [];
