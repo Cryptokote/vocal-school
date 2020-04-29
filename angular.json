@@ -125,9 +125,6 @@
               "devServerTarget": "vocal-teacher-app:serve:production"
             }
           }
-        },
-        "options": {
-          "outputPath": "docs/"
         }
       }
     }
