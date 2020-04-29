@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {StudentsListService} from './students-list.service';
 import { faDollarSign, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import {Router} from '@angular/router';
+import {PaymentModalComponent} from '../payment-modal/payment-modal.component';
+import {ModalOptions} from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-students-list',
@@ -13,7 +16,10 @@ export class StudentsListComponent implements OnInit {
   public students;
   faDollarSign = faDollarSign;
   faCheck = faCheck;
-  constructor(private studentsListService: StudentsListService, private router: Router) { }
+  bsModalRef: BsModalRef;
+  constructor(private studentsListService: StudentsListService,
+              private router: Router,
+              private modalService: BsModalService) { }
 
   ngOnInit(): void {
     this.initData();
@@ -47,5 +53,13 @@ export class StudentsListComponent implements OnInit {
 
   navigateToSingleStudent(student) {
     this.router.navigate(['/createStudent'], {state: {data: {...student}}});
+  }
+
+  openModalWithComponent(name: string) {
+    const initialState = {studentName: name};
+    this.bsModalRef = this.modalService.show(PaymentModalComponent, {initialState} as ModalOptions);
+    this.bsModalRef.content.onClose.subscribe(paymentType => {
+      this.addPayment(name, paymentType);
+    });
   }
 }

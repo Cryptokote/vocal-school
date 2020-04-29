@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ApiService} from '../api.service';
-import {catchError, map} from 'rxjs/internal/operators';
+import {catchError, filter, map} from 'rxjs/internal/operators';
 
 @Injectable()
 export class StudentsListService {
@@ -23,6 +23,7 @@ export class StudentsListService {
           student.indivCounterClass = this.getStudentIndivsCounterClass(student.remaining_indivs);
         });
         return students;
+        // return students.filter(student => student.mail.indexOf('test') === -1);
       }),
       catchError(() => {
         return [];
