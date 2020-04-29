@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Add payment for {{studentName}}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <button type="button" class="btn btn-default" (click)="feedback('indiv')">Indiv</button>
+  <button type="button" class="btn btn-default float-right" (click)="feedback('abon')">Abonement</button>
+
+</div>
+

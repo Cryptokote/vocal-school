@@ -8,14 +8,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ApiService} from './api.service';
 import {HttpClientModule} from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { CreateStudentComponent } from './create-student/create-student.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { PaymentModalComponent } from './payment-modal/payment-modal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateStudentComponent,
+    PaymentModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ModalModule.forRoot()
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
