@@ -15,6 +15,10 @@
     <!--</button>-->
     <span (click)="navigateToSingleStudent(student)">{{student.name}}</span>
     <span class="counter" [ngClass]="student.indivCounterClass">{{student.remaining_indivs}}</span>
+    <div class="payment-info">
+      <span *ngIf="student.lastPayedDate">Last payed: {{student.lastPayedDate | date: 'MMM d'}}</span>
+      <span *ngIf="student.lastLessonDate" class="float-right">Last lesson: {{student.lastLessonDate | date: 'MMM d'}}</span>
+    </div>
   </div>
 
 </div>

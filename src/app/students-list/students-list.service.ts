@@ -15,14 +15,24 @@ export class StudentsListService {
     return 'red';
   }
 
+  getStudentLastLessonDate(lessons) {
+    return lessons.length > 0
+      ? new Date(lessons.sort((a, b) => a.date > b.date)[0].date * 1000)
+      : null;
+  }
+
   getStudentsList() {
     return this.apiService.getJson('getStudents').pipe(
       map((response) => {
         const students = response.students;
         students.forEach(student => {
           student.indivCounterClass = this.getStudentIndivsCounterClass(student.remaining_indivs);
+          student.lastLessonDate = this.getStudentLastLessonDate(student.lessons);
+          student.lastPayedDate = student.last_payed_date
+            ? new Date(student.last_payed_date * 1000)
+            : null;
         });
-        // return students;
+        // return students.filter(student => student.mail.indexOf('test') !== -1);
         return students.filter(student => student.mail.indexOf('test') === -1);
       }),
       catchError(() => {
