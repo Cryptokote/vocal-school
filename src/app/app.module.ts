@@ -12,7 +12,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { CreateStudentComponent } from './create-student/create-student.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PaymentModalComponent } from './payment-modal/payment-modal.component';
-
+import {LoaderModule} from './loader/loader.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { PaymentModalComponent } from './payment-modal/payment-modal.component';
     BrowserModule,
     AppRoutingModule,
     StudentsListModule,
+    LoaderModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

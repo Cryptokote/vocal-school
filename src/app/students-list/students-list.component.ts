@@ -14,6 +14,7 @@ import {ModalOptions} from 'ngx-bootstrap';
 })
 export class StudentsListComponent implements OnInit {
   public students;
+  public isLoading = false;
   faDollarSign = faDollarSign;
   faCheck = faCheck;
   bsModalRef: BsModalRef;
@@ -26,15 +27,18 @@ export class StudentsListComponent implements OnInit {
   }
 
   initData() {
+    this.isLoading = true;
     this.studentsListService.getStudentsList().subscribe((response) => {
       console.log(response);
       this.students = response.sort((a, b) => {
         return a.remaining_indivs - b.remaining_indivs;
       });
+      this.isLoading = false;
     });
   }
 
   addCompletedLesson(studentName) {
+    this.isLoading = true;
     this.studentsListService.completeLesson({name: studentName}).subscribe((response) => {
       this.initData();
     });
