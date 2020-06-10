@@ -17,7 +17,7 @@ export class StudentsListService {
 
   getStudentLastLessonDate(lessons) {
     return lessons.length > 0
-      ? new Date(lessons.sort((a, b) => a.date > b.date)[0].date * 1000)
+      ? new Date(lessons.sort((a, b) => b.date - a.date)[0].date * 1000)
       : null;
   }
 
